@@ -31,12 +31,9 @@ pipeline {
                     }
                     steps {
                         sh '''
-                            ls -la
                             node --version
                             npm --version
-                            npm ci
                             npm run test
-                            ls -la
                         '''
                     }
                     post {
@@ -57,7 +54,7 @@ pipeline {
                             npm install serve
                             node_modules/.bin/serve -s build &
                             sleep 10
-                            npx playwright test --reporter=html
+                            npx playwright test  --reporter=html
                         '''
                     }
                     post {
